@@ -1,0 +1,411 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Modern DeFi Dark Theme - Inspired by Uniswap, Aave, 1inch */
+    --background: 219 17% 8%;          /* Deep dark blue-gray */
+    --foreground: 210 11% 96%;         /* Clean white */
+
+    --card: 219 17% 10%;               /* Slightly lighter than bg */
+    --card-foreground: 210 11% 96%;   /* Clean white */
+
+    --popover: 219 17% 12%;            /* Card variant */
+    --popover-foreground: 210 11% 96%;
+
+    --primary: 262 75% 65%;            /* Vibrant purple - DeFi signature */
+    --primary-foreground: 219 17% 8%;
+
+    --secondary: 219 17% 16%;          /* Subtle gray */
+    --secondary-foreground: 210 11% 96%;
+
+    --muted: 219 17% 14%;              /* Muted background */
+    --muted-foreground: 210 11% 71%;  /* Muted text */
+
+    --accent: 262 75% 65%;             /* Purple accent */
+    --accent-foreground: 219 17% 8%;
+
+    --destructive: 0 84% 60%;          /* Red for errors */
+    --destructive-foreground: 210 11% 96%;
+
+    --border: 219 17% 20%;             /* Subtle borders */
+    --input: 219 17% 16%;              /* Input backgrounds */
+    --ring: 262 75% 65%;               /* Focus rings */
+
+    --radius: 0.75rem;                 /* Rounded corners */
+
+    /* Enhanced DeFi variables with premium feel */
+    --neon-purple: 262 75% 65%;
+    --neon-pink: 328 85% 70%;
+    --neon-blue: 195 100% 50%;
+    --neon-gold: 45 100% 70%;
+    --neon-emerald: 160 84% 55%;
+    --neon-crimson: 348 83% 62%;
+    
+    /* Premium gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--neon-purple)), hsl(var(--neon-pink)));
+    --gradient-gold: linear-gradient(135deg, hsl(var(--neon-gold)), hsl(45, 100%, 60%));
+    --gradient-emerald: linear-gradient(135deg, hsl(var(--neon-emerald)), hsl(160, 84%, 45%));
+    --gradient-crimson: linear-gradient(135deg, hsl(var(--neon-crimson)), hsl(348, 83%, 52%));
+    --gradient-holographic: linear-gradient(45deg, hsl(var(--neon-purple)), hsl(var(--neon-blue)), hsl(var(--neon-pink)), hsl(var(--neon-gold)));
+    
+    /* Enhanced glows */
+    --glow-purple: 0 0 40px hsla(262, 75%, 65%, 0.7);
+    --glow-gold: 0 0 40px hsla(45, 100%, 70%, 0.7);
+    --glow-emerald: 0 0 40px hsla(160, 84%, 55%, 0.7);
+    --glow-crimson: 0 0 40px hsla(348, 83%, 62%, 0.7);
+    --glow-holographic: 0 0 60px hsla(262, 75%, 65%, 0.5), 0 0 100px hsla(328, 85%, 70%, 0.3);
+    
+    /* Glass morphism */
+    --glass-bg: hsla(219, 17%, 12%, 0.8);
+    --glass-border: hsla(255, 255%, 255%, 0.1);
+    --glass-highlight: hsla(255, 255%, 255%, 0.05);
+
+    /* Sidebar variables for compatibility */
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Enhanced dark theme for premium feel */
+    --background: 219 17% 6%;          /* Even darker */
+    --foreground: 210 11% 98%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-sans;
+    background-image: 
+      radial-gradient(circle at 20% 80%, hsla(262, 75%, 65%, 0.12) 0%, transparent 60%),
+      radial-gradient(circle at 80% 20%, hsla(328, 85%, 70%, 0.12) 0%, transparent 60%),
+      radial-gradient(circle at 40% 40%, hsla(195, 100%, 50%, 0.08) 0%, transparent 50%);
+    min-height: 100vh;
+    position: relative;
+  }
+  
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+      linear-gradient(45deg, transparent 30%, hsla(262, 75%, 65%, 0.02) 50%, transparent 70%),
+      linear-gradient(-45deg, transparent 30%, hsla(328, 85%, 70%, 0.02) 50%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+}
+
+@layer components {
+  /* Enhanced glassmorphism card component */
+  .glass-card {
+    @apply bg-card/40 backdrop-blur-xl border;
+    background: linear-gradient(135deg, var(--glass-bg), hsla(219, 17%, 15%, 0.6));
+    border: 1px solid var(--glass-border);
+    box-shadow: 
+      0 8px 32px 0 rgba(31, 38, 135, 0.4),
+      inset 0 1px 0 0 var(--glass-highlight),
+      inset 0 -1px 0 0 hsla(255, 255%, 255%, 0.02);
+  }
+  
+  /* Premium glass card with enhanced effects */
+  .glass-card-premium {
+    @apply bg-card/30 backdrop-blur-2xl border;
+    background: 
+      linear-gradient(135deg, var(--glass-bg), hsla(219, 17%, 18%, 0.4)),
+      linear-gradient(45deg, transparent, hsla(262, 75%, 65%, 0.03), transparent);
+    border: 1px solid var(--glass-border);
+    box-shadow: 
+      0 12px 40px 0 rgba(31, 38, 135, 0.5),
+      inset 0 1px 0 0 var(--glass-highlight),
+      inset 0 -1px 0 0 hsla(255, 255%, 255%, 0.02);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .glass-card-premium::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transition: left 0.8s ease;
+  }
+  
+  .glass-card-premium:hover::before {
+    left: 100%;
+  }
+
+  /* Enhanced neon button component */
+  .neon-button {
+    @apply relative overflow-hidden font-semibold tracking-wide;
+    background: var(--gradient-primary);
+    box-shadow: var(--glow-purple);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid hsla(255, 255%, 255%, 0.2);
+  }
+
+  .neon-button:hover {
+    box-shadow: var(--glow-holographic);
+    transform: translateY(-3px) scale(1.02);
+  }
+
+  .neon-button:active {
+    transform: translateY(-1px) scale(0.98);
+  }
+
+  .neon-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.3),
+      transparent
+    );
+    transition: left 0.6s ease;
+  }
+
+  .neon-button:hover::before {
+    left: 100%;
+  }
+  
+  /* Holographic button variant */
+  .holographic-button {
+    @apply relative overflow-hidden font-bold tracking-wider;
+    background: var(--gradient-holographic);
+    background-size: 300% 300%;
+    animation: holographic-shift 3s ease-in-out infinite;
+    box-shadow: var(--glow-holographic);
+    border: 1px solid hsla(255, 255%, 255%, 0.3);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .holographic-button:hover {
+    transform: translateY(-4px) scale(1.05);
+    animation-duration: 1s;
+  }
+
+  /* Floating animation */
+  .float-element {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  /* Glow pulse animation */
+  .glow-pulse {
+    animation: glow-pulse 2s ease-in-out infinite;
+  }
+
+  /* Enhanced gradient text variants */
+  .gradient-text {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 700;
+  }
+  
+  .gradient-text-gold {
+    background: var(--gradient-gold);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 700;
+  }
+  
+  .gradient-text-holographic {
+    background: var(--gradient-holographic);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: holographic-text 2s ease-in-out infinite;
+    font-weight: 800;
+  }
+
+  /* Shimmer effect */
+  .shimmer {
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.1) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 2s linear infinite;
+  }
+
+  /* Modern scrollbar */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: hsl(var(--muted));
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: hsl(var(--primary));
+    border-radius: 3px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--primary)/0.8);
+  }
+
+  /* Legacy utility classes for compatibility */
+  .gradient-hero {
+    background: var(--gradient-primary);
+  }
+  
+  .shadow-glow {
+    box-shadow: var(--glow-purple);
+  }
+  
+  .transition-smooth {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-15px) rotate(5deg);
+  }
+}
+
+@keyframes holographic-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes holographic-text {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes glow-pulse {
+  0%, 100% {
+    box-shadow: 0 0 20px hsla(262, 75%, 65%, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 40px hsla(262, 75%, 65%, 0.8);
+  }
+}
+
+@keyframes magical-float {
+  0%, 100% {
+    transform: translateY(0px) translateX(0px) rotate(0deg);
+    opacity: 0.6;
+  }
+  33% {
+    transform: translateY(-8px) translateX(4px) rotate(120deg);
+    opacity: 0.8;
+  }
+  66% {
+    transform: translateY(-4px) translateX(-4px) rotate(240deg);
+    opacity: 1;
+  }
+}
+
+/* Splash screen animations */
+@keyframes pulse-slow {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.05); }
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes holographic-pulse {
+  0%, 100% { 
+    filter: hue-rotate(0deg) brightness(1) saturate(1);
+    transform: scale(1);
+  }
+  33% { 
+    filter: hue-rotate(120deg) brightness(1.2) saturate(1.5);
+    transform: scale(1.02);
+  }
+  66% { 
+    filter: hue-rotate(240deg) brightness(1.1) saturate(1.3);
+    transform: scale(1.01);
+  }
+}
+
+@keyframes magical-bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0) scale(1);
+    opacity: 0.8;
+  }
+  40% {
+    transform: translateY(-10px) scale(1.1);
+    opacity: 1;
+  }
+  60% {
+    transform: translateY(-5px) scale(1.05);
+    opacity: 0.9;
+  }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 4s ease-in-out infinite;
+}
+
+.animate-spin-slow {
+  animation: spin-slow 8s linear infinite;
+}
+
+.animate-holographic-pulse {
+  animation: holographic-pulse 3s ease-in-out infinite;
+}
+
+.animate-magical-bounce {
+  animation: magical-bounce 2s ease-in-out infinite;
+}
