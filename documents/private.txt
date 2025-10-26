@@ -1,0 +1,28 @@
+Account component address: account_sim1c956qr3kxlgypxwst89j9yf24tjc7zxd4up38x37zr6q4jxdx9rhma
+Public key: 03191ed79217688b4e56cb0b27ec7502b1a813074bbe56534bc6e1bbf32b826eee
+Private key: e02394310c64318244abdb8940da20f93d54732f43c8f17ab9f03e0554139f2c
+Owner badge: resource_sim1nfzf2h73frult99zd060vfcml5kncq3mxpthusm9lkglvhsr0guahy:#1#
+
+XRD resource (simulator): resource_sim1tknxxxxxxxxxradxrdxxxxxxxxx009923554798xxxxxxxxxakj8n3.​
+
+Faucet component (simulator): component_sim1cptxxxxxxxxxfaucetxxxxxxxxx000527798379xxxxxxxxxhkrefh.​
+
+Your account: account_sim1c956qr3kxlgypxwst89j9yf24tjc7zxd4up38x37zr6q4jxdx9rhma.​
+
+Your component: component_sim1cpacq8pamuyafpnavkt6na3jkju83udrz6kq4jyvfgu5pwxk6pwnx2.​
+
+Your badge resource (mint target): resource_sim1nfh3kupr5l95w6ufpuysl0afun0gfzzw7ltmk7y68ks5ekqhlkjuyc
+
+
+Package address:
+package_sim1pk3cmat8st4ja2ms8mjqy2e9ptk8y6cx40v4qnfrkgnxcp2krkpr92
+
+Component address (from instantiate call):
+Shown as:
+component_sim1cpacq8pamuyafpnavkt6na3jkju83udrz6kq4jyvfgu5pwxk6pwnx2
+
+Account address:
+(From resim new-account)
+account_sim1c956qr3kxlgypxwst89j9yf24tjc7zxd4up38x37zr6q4jxdx9rhma
+
+└─ Component: component_sim1cpacq8pamuyafpnavkt6na3jkju83udrz6kq4jyvfgu5pwxk6pwnx2

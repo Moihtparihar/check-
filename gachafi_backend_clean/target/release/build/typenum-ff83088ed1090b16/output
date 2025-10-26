@@ -1,0 +1,3 @@
+cargo:rerun-if-changed=build/main.rs
+cargo:rustc-env=TYPENUM_BUILD_CONSTS=C:\Users\mohit\OneDrive\Desktop\Gachafi\gachafi_backend_clean\target\release\build\typenum-ff83088ed1090b16\out\consts.rs
+cargo:rustc-env=TYPENUM_BUILD_OP=C:\Users\mohit\OneDrive\Desktop\Gachafi\gachafi_backend_clean\target\release\build\typenum-ff83088ed1090b16\out\op.rs

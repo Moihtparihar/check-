@@ -1,0 +1,117 @@
+cargo:rerun-if-env-changed=BLST_TEST_NO_STD
+Using blst source directory C:\Users\mohit\.cargo\registry\src\index.crates.io-6f17d22bba15001f\blst-0.3.11\blst
+cargo:rerun-if-changed=C:\Users\mohit\.cargo\registry\src\index.crates.io-6f17d22bba15001f\blst-0.3.11\blst\src
+Compiling in portable mode without ISA extensions
+TARGET = Some("wasm32-unknown-unknown")
+HOST = Some("x86_64-pc-windows-msvc")
+cargo:rerun-if-env-changed=CC_wasm32-unknown-unknown
+CC_wasm32-unknown-unknown = None
+cargo:rerun-if-env-changed=CC_wasm32_unknown_unknown
+CC_wasm32_unknown_unknown = None
+cargo:rerun-if-env-changed=TARGET_CC
+TARGET_CC = None
+cargo:rerun-if-env-changed=CC
+CC = None
+cargo:rerun-if-env-changed=CRATE_CC_NO_DEFAULTS
+CRATE_CC_NO_DEFAULTS = None
+DEBUG = Some("false")
+cargo:rerun-if-env-changed=CFLAGS_wasm32-unknown-unknown
+CFLAGS_wasm32-unknown-unknown = None
+cargo:rerun-if-env-changed=CFLAGS_wasm32_unknown_unknown
+CFLAGS_wasm32_unknown_unknown = None
+cargo:rerun-if-env-changed=TARGET_CFLAGS
+TARGET_CFLAGS = Some("-mcpu=mvp -mmutable-globals -msign-ext")
+cargo:rerun-if-env-changed=CC_wasm32-unknown-unknown
+CC_wasm32-unknown-unknown = None
+cargo:rerun-if-env-changed=CC_wasm32_unknown_unknown
+CC_wasm32_unknown_unknown = None
+cargo:rerun-if-env-changed=TARGET_CC
+TARGET_CC = None
+cargo:rerun-if-env-changed=CC
+CC = None
+cargo:rerun-if-env-changed=CRATE_CC_NO_DEFAULTS
+CRATE_CC_NO_DEFAULTS = None
+cargo:rerun-if-env-changed=CFLAGS_wasm32-unknown-unknown
+CFLAGS_wasm32-unknown-unknown = None
+cargo:rerun-if-env-changed=CFLAGS_wasm32_unknown_unknown
+CFLAGS_wasm32_unknown_unknown = None
+cargo:rerun-if-env-changed=TARGET_CFLAGS
+TARGET_CFLAGS = Some("-mcpu=mvp -mmutable-globals -msign-ext")
+cargo:rerun-if-env-changed=CC_wasm32-unknown-unknown
+CC_wasm32-unknown-unknown = None
+cargo:rerun-if-env-changed=CC_wasm32_unknown_unknown
+CC_wasm32_unknown_unknown = None
+cargo:rerun-if-env-changed=TARGET_CC
+TARGET_CC = None
+cargo:rerun-if-env-changed=CC
+CC = None
+cargo:rerun-if-env-changed=CRATE_CC_NO_DEFAULTS
+CRATE_CC_NO_DEFAULTS = None
+cargo:rerun-if-env-changed=CFLAGS_wasm32-unknown-unknown
+CFLAGS_wasm32-unknown-unknown = None
+cargo:rerun-if-env-changed=CFLAGS_wasm32_unknown_unknown
+CFLAGS_wasm32_unknown_unknown = None
+cargo:rerun-if-env-changed=TARGET_CFLAGS
+TARGET_CFLAGS = Some("-mcpu=mvp -mmutable-globals -msign-ext")
+cargo:rerun-if-env-changed=CC_wasm32-unknown-unknown
+CC_wasm32-unknown-unknown = None
+cargo:rerun-if-env-changed=CC_wasm32_unknown_unknown
+CC_wasm32_unknown_unknown = None
+cargo:rerun-if-env-changed=TARGET_CC
+TARGET_CC = None
+cargo:rerun-if-env-changed=CC
+CC = None
+cargo:rerun-if-env-changed=CRATE_CC_NO_DEFAULTS
+CRATE_CC_NO_DEFAULTS = None
+cargo:rerun-if-env-changed=CFLAGS_wasm32-unknown-unknown
+CFLAGS_wasm32-unknown-unknown = None
+cargo:rerun-if-env-changed=CFLAGS_wasm32_unknown_unknown
+CFLAGS_wasm32_unknown_unknown = None
+cargo:rerun-if-env-changed=TARGET_CFLAGS
+TARGET_CFLAGS = Some("-mcpu=mvp -mmutable-globals -msign-ext")
+cargo:rerun-if-env-changed=CC_wasm32-unknown-unknown
+CC_wasm32-unknown-unknown = None
+cargo:rerun-if-env-changed=CC_wasm32_unknown_unknown
+CC_wasm32_unknown_unknown = None
+cargo:rerun-if-env-changed=TARGET_CC
+TARGET_CC = None
+cargo:rerun-if-env-changed=CC
+CC = None
+cargo:rerun-if-env-changed=CRATE_CC_NO_DEFAULTS
+CRATE_CC_NO_DEFAULTS = None
+cargo:rerun-if-env-changed=CFLAGS_wasm32-unknown-unknown
+CFLAGS_wasm32-unknown-unknown = None
+cargo:rerun-if-env-changed=CFLAGS_wasm32_unknown_unknown
+CFLAGS_wasm32_unknown_unknown = None
+cargo:rerun-if-env-changed=TARGET_CFLAGS
+TARGET_CFLAGS = Some("-mcpu=mvp -mmutable-globals -msign-ext")
+running: "clang" "-O2" "-ffunction-sections" "-fdata-sections" "-fPIC" "--target=wasm32-unknown-unknown" "-mcpu=mvp" "-mmutable-globals" "-msign-ext" "-ffreestanding" "-D__BLST_NO_ASM__" "-D__BLST_PORTABLE__" "-DSCRATCH_LIMIT=(45 * 1024)" "-o" "C:\\Users\\mohit\\OneDrive\\Desktop\\Gachafi\\gachafi_backend_clean\\target\\wasm32-unknown-unknown\\release\\build\\blst-a53ac5e4b8fec88f\\out\\1b410a10276ec247-server.o" "-c" "C:\\Users\\mohit\\.cargo\\registry\\src\\index.crates.io-6f17d22bba15001f\\blst-0.3.11\\blst\\src\\server.c"
+exit code: 0
+cargo:rerun-if-env-changed=AR_wasm32-unknown-unknown
+AR_wasm32-unknown-unknown = None
+cargo:rerun-if-env-changed=AR_wasm32_unknown_unknown
+AR_wasm32_unknown_unknown = None
+cargo:rerun-if-env-changed=TARGET_AR
+TARGET_AR = None
+cargo:rerun-if-env-changed=AR
+AR = None
+running: "clang" "-print-search-dirs"
+exit code: 0
+cargo:rerun-if-env-changed=ARFLAGS_wasm32-unknown-unknown
+ARFLAGS_wasm32-unknown-unknown = None
+cargo:rerun-if-env-changed=ARFLAGS_wasm32_unknown_unknown
+ARFLAGS_wasm32_unknown_unknown = None
+cargo:rerun-if-env-changed=TARGET_ARFLAGS
+TARGET_ARFLAGS = None
+cargo:rerun-if-env-changed=ARFLAGS
+ARFLAGS = None
+running: "C:\\Program Files\\Microsoft Visual Studio\\18\\Insiders\\VC\\Tools\\Llvm\\x64\\bin\\llvm-ar.exe" "cq" "C:\\Users\\mohit\\OneDrive\\Desktop\\Gachafi\\gachafi_backend_clean\\target\\wasm32-unknown-unknown\\release\\build\\blst-a53ac5e4b8fec88f\\out\\libblst.a" "C:\\Users\\mohit\\OneDrive\\Desktop\\Gachafi\\gachafi_backend_clean\\target\\wasm32-unknown-unknown\\release\\build\\blst-a53ac5e4b8fec88f\\out\\1b410a10276ec247-server.o"
+exit code: 0
+running: "clang" "-print-search-dirs"
+exit code: 0
+running: "C:\\Program Files\\Microsoft Visual Studio\\18\\Insiders\\VC\\Tools\\Llvm\\x64\\bin\\llvm-ar.exe" "s" "C:\\Users\\mohit\\OneDrive\\Desktop\\Gachafi\\gachafi_backend_clean\\target\\wasm32-unknown-unknown\\release\\build\\blst-a53ac5e4b8fec88f\\out\\libblst.a"
+exit code: 0
+cargo:rustc-link-lib=static=blst
+cargo:rustc-link-search=native=C:\Users\mohit\OneDrive\Desktop\Gachafi\gachafi_backend_clean\target\wasm32-unknown-unknown\release\build\blst-a53ac5e4b8fec88f\out
+cargo:BINDINGS=C:\Users\mohit\.cargo\registry\src\index.crates.io-6f17d22bba15001f\blst-0.3.11\blst\bindings
+cargo:C_SRC=C:\Users\mohit\.cargo\registry\src\index.crates.io-6f17d22bba15001f\blst-0.3.11\blst\src

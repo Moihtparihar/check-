@@ -1,0 +1,15 @@
+import { MultiProvider } from '../../providers/MultiProvider.js';
+import { ChainMap } from '../../types.js';
+import { MultiGeneric } from '../../utils/MultiGeneric.js';
+import { BaseContractVerifier } from './BaseContractVerifier.js';
+import { ZKSyncContractVerifier } from './ZKSyncContractVerifier.js';
+import { BuildArtifact, CompilerOptions, VerificationInput } from './types.js';
+export declare class PostDeploymentContractVerifier extends MultiGeneric<VerificationInput> {
+    protected readonly multiProvider: MultiProvider;
+    protected logger: import("pino").default.Logger<never>;
+    protected contractVerifier: BaseContractVerifier;
+    protected zkSyncContractVerifier: ZKSyncContractVerifier;
+    constructor(verificationInputs: ChainMap<VerificationInput>, multiProvider: MultiProvider, apiKeys: ChainMap<string>, buildArtifact: BuildArtifact, licenseType: CompilerOptions['licenseType']);
+    verify(targets?: string[]): Promise<PromiseSettledResult<void>[]>;
+}
+//# sourceMappingURL=PostDeploymentContractVerifier.d.ts.map
