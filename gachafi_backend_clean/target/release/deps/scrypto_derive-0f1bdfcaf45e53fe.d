@@ -1,9 +1,0 @@
-C:\Users\mohit\OneDrive\Desktop\Gachafi\gachafi_backend_clean\target\release\deps\scrypto_derive-0f1bdfcaf45e53fe.dll: C:\Users\mohit\.cargo\registry\src\index.crates.io-6f17d22bba15001f\scrypto-derive-1.3.0\src/lib.rs C:\Users\mohit\.cargo\registry\src\index.crates.io-6f17d22bba15001f\scrypto-derive-1.3.0\src\ast.rs C:\Users\mohit\.cargo\registry\src\index.crates.io-6f17d22bba15001f\scrypto-derive-1.3.0\src\blueprint.rs C:\Users\mohit\.cargo\registry\src\index.crates.io-6f17d22bba15001f\scrypto-derive-1.3.0\src\non_fungible_data.rs C:\Users\mohit\.cargo\registry\src\index.crates.io-6f17d22bba15001f\scrypto-derive-1.3.0\src\utils.rs
-
-C:\Users\mohit\OneDrive\Desktop\Gachafi\gachafi_backend_clean\target\release\deps\scrypto_derive-0f1bdfcaf45e53fe.d: C:\Users\mohit\.cargo\registry\src\index.crates.io-6f17d22bba15001f\scrypto-derive-1.3.0\src/lib.rs C:\Users\mohit\.cargo\registry\src\index.crates.io-6f17d22bba15001f\scrypto-derive-1.3.0\src\ast.rs C:\Users\mohit\.cargo\registry\src\index.crates.io-6f17d22bba15001f\scrypto-derive-1.3.0\src\blueprint.rs C:\Users\mohit\.cargo\registry\src\index.crates.io-6f17d22bba15001f\scrypto-derive-1.3.0\src\non_fungible_data.rs C:\Users\mohit\.cargo\registry\src\index.crates.io-6f17d22bba15001f\scrypto-derive-1.3.0\src\utils.rs
-
-C:\Users\mohit\.cargo\registry\src\index.crates.io-6f17d22bba15001f\scrypto-derive-1.3.0\src/lib.rs:
-C:\Users\mohit\.cargo\registry\src\index.crates.io-6f17d22bba15001f\scrypto-derive-1.3.0\src\ast.rs:
-C:\Users\mohit\.cargo\registry\src\index.crates.io-6f17d22bba15001f\scrypto-derive-1.3.0\src\blueprint.rs:
-C:\Users\mohit\.cargo\registry\src\index.crates.io-6f17d22bba15001f\scrypto-derive-1.3.0\src\non_fungible_data.rs:
-C:\Users\mohit\.cargo\registry\src\index.crates.io-6f17d22bba15001f\scrypto-derive-1.3.0\src\utils.rs:
