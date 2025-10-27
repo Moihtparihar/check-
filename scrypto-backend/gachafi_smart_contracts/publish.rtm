@@ -1,0 +1,5 @@
+PUBLISH_PACKAGE
+  "./target/wasm32-unknown-unknown/release/gachafi_smart_contracts.wasm"
+  "./target/gachafi_smart_contracts.abi"
+  Map<String, String>()
+;
