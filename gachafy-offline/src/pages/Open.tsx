@@ -14,6 +14,7 @@ import { Switch } from "@/components/ui/switch";
 import { useBooster } from "@/hooks/useBooster";
 import { useAudio } from "@/hooks/useAudio";
 import AudioControls from "@/components/AudioControls";
+import { useWallet } from "@/hooks/useWallet";
 
 interface Tier {
   id: string;

@@ -13,7 +13,7 @@ export const STOKENET_CONFIG = {
 };
 
 // XRD resource address on Stokenet
-export const XRD_RESOURCE_ADDRESS = 'resource_tdx_2_1tknxxxxxxxxxradxrdxxxxxxxxx009923554798xxxxxxxxxtfd2jc';
+   export const XRD_RESOURCE_ADDRESS = 'resource_tdx_2_1tknxxxxxxxxxradxrdxxxxxxxxx009923554798xxxxxxxxxtfd2jc';
 
 // Gacha package and component addresses (these would need to be deployed)
 export const GACHA_PACKAGE_ADDRESS = 'package_tdx_2_1p4r8p8p8p8p8p8p8p8p8p8p8p8p8p8p8p8p8p8p8p8p8p8p8p8p8p';
@@ -130,10 +130,18 @@ class RadixService {
           (resource: any) => resource.resource_address === XRD_RESOURCE_ADDRESS
         );
 
-        const balance = xrdBalance ? parseFloat(xrdBalance.amount) / Math.pow(10, 18) : 0;
-        
-        // Validate balance
-        return validateInput(balanceSchema, balance, 'Invalid balance received');
+        // Safely parse the value to handle unexpected/malformed cases
+        let balance = 0;
+        if (xrdBalance && typeof xrdBalance.amount === 'string') {
+          const parsed = parseFloat(xrdBalance.amount);
+          if (!isNaN(parsed) && isFinite(parsed)) {
+            balance = parsed / Math.pow(10, 18);
+          }
+        }
+
+// Validate balance
+return validateInput(balanceSchema, balance, 'Invalid balance received');
+
       },
       { maxAttempts: 3, delayMs: 1000 }
     ).catch(error => {
