@@ -69,17 +69,19 @@ const Open = () => {
   const { streak, isTodayDone, streakMultiplier, markTodayComplete } = useStreak();
   const { isActive: boosterActive, cost: boosterCost, description: boosterDescription, toggleBooster } = useBooster();
   const { playOpenCapsule, playRevealRare, playRevealCommon, playRevealEpic, playButtonClick, playButtonHover, playSuccess, playError } = useAudio();
-  const [balance, setBalance] = useState(0); // Live XRD balance
+  // const [balance, setBalance] = useState(0); // Live XRD balance
   const [selectedTier, setSelectedTier] = useState<Tier>(tiers[2]); // Default to Epic
   const [startY, setStartY] = useState(0);
-  const [walletAddress, setWalletAddress] = useState<string>("");
-  const [isConnected, setIsConnected] = useState(false);
+  // const [walletAddress, setWalletAddress] = useState<string>("");
+  // const [isConnected, setIsConnected] = useState(false);
   const [pendingTx, setPendingTx] = useState<string>("");
   const [isLoading, setIsLoading] = useState(false);
   
   const [isBridgeModalOpen, setIsBridgeModalOpen] = useState(false);
   const [swipeStartY, setSwipeStartY] = useState(0);
   const [swipeStartTime, setSwipeStartTime] = useState(0);
+  const { address: walletAddress, balance, isConnected, connectWallet, isLoading: walletLoading } = useWallet();
+  
 
   // Initialize Radix connection
   useEffect(() => {
@@ -96,27 +98,6 @@ const Open = () => {
     
     initRadix();
   }, []);
-
-  // Poll balance every 5 seconds
-  useEffect(() => {
-    if (!isConnected || !walletAddress) return;
-
-    const fetchBalance = async () => {
-      try {
-        const liveBalance = await radixService.getBalance(walletAddress);
-        setBalance(liveBalance);
-      } catch (error) {
-        console.error('Error fetching balance:', error);
-      }
-    };
-
-    fetchBalance(); // Initial fetch
-    const interval = setInterval(fetchBalance, 5000);
-
-    return () => {
-      clearInterval(interval);
-    };
-  }, [isConnected, walletAddress]);
 
   // Poll pending transaction status
   useEffect(() => {
@@ -135,7 +116,7 @@ const Open = () => {
             variant: "destructive",
           });
           // Refund the balance
-          setBalance(prev => prev + selectedTier.price);
+          // setBalance(prev => prev + selectedTier.price);
           setPendingTx("");
         }
       } catch (error) {
@@ -146,42 +127,6 @@ const Open = () => {
     const interval = setInterval(checkTxStatus, 3000);
     return () => clearInterval(interval);
   }, [pendingTx, selectedTier, navigate, toast]);
-
-  const connectWallet = async () => {
-    try {
-      setIsLoading(true);
-      
-      console.log('Manual wallet connection attempt...');
-      const result = await radixService.connectWallet();
-      console.log('Manual connection result:', result);
-      
-      if (result?.accounts?.length > 0) {
-        setWalletAddress(result.accounts[0].address);
-        setIsConnected(true);
-        console.log('Successfully connected wallet:', result.accounts[0].address);
-        toast({
-          title: "Wallet Connected",
-          description: `Connected to ${result.accounts[0].address.slice(0, 10)}...`,
-        });
-      } else {
-        console.error('No accounts returned from wallet connection');
-        toast({
-          title: "Connection Failed", 
-          description: "No wallet found. Please install Radix Wallet extension.",
-          variant: "destructive",
-        });
-      }
-    } catch (error) {
-      console.error('Manual wallet connection error:', error);
-      toast({
-        title: "Connection Failed",
-        description: "Failed to connect wallet. Please try again.",
-        variant: "destructive",
-      });
-    } finally {
-      setIsLoading(false);
-    }
-  };
 
   const openBox = async () => {
     playButtonClick();
@@ -214,7 +159,7 @@ const Open = () => {
       // Calculate total cost including booster
       const totalCost = selectedTier.price + (boosterActive ? boosterCost : 0);
       // Deduct balance immediately for UX
-      setBalance(prev => prev - totalCost);
+      // setBalance(prev => prev - totalCost);
       
       // Call Radix Stokenet to mint badge NFT with streak multiplier
       const txHash = await radixService.mintGachaBadge(
@@ -241,7 +186,7 @@ const Open = () => {
       console.error('Mint failed:', error);
       // Revert balance on failure
       const totalCost = selectedTier.price + (boosterActive ? boosterCost : 0);
-      setBalance(prev => prev + totalCost);
+      // setBalance(prev => prev + totalCost);
       toast({
         title: "Transaction Failed",
         description: "Failed to submit transaction",
@@ -293,7 +238,7 @@ const Open = () => {
 
   const handleBridgeSuccess = (amount: number, txHash: string) => {
     // Update balance with bridged amount
-    setBalance(prev => prev + amount);
+    // setBalance(prev => prev + amount);
     setIsBridgeModalOpen(false);
     
     toast({
