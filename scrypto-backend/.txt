@@ -1,0 +1,15 @@
+ $env:RUSTFLAGS = "-C link-arg=-zstack-size=131072 -C target-feature=-bulk-memory"
+
+ run this whenever new terminal open 
+
+ACCOUNT DETAILS
+A new account has been created!
+Account component address: account_sim1c956qr3kxlgypxwst89j9yf24tjc7zxd4up38x37zr6q4jxdx9rhma
+Public key: 028104a758eb47815d38e390b2cbaf0064f62bec21a040cef585c1bbd58149bf6f
+Private key: e6de499dfb6fe741705e852ffd8b3ac9bf5dddc5fcaba562fb2973e309895b3e
+Owner badge: resource_sim1nfzf2h73frult99zd060vfcml5kncq3mxpthusm9lkglvhsr0guahy:#1#
+Set up as default account since you had none, you can change it using `set-default-account`.
+
+pakage_address  : package_tdx_2_1p4588p2hrkfzzl2ynm5gvc590sr5tr8rc4uyk02p0r04xnqxlsqhqe
+
+component address : component_tdx_2_1czx0krpexd9jhhtc5dthwqkh28ukvjnpj4yxm48px0qxkjdcexylav

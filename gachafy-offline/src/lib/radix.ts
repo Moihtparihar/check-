@@ -15,9 +15,13 @@ export const STOKENET_CONFIG = {
 // XRD resource address on Stokenet
 export const XRD_RESOURCE_ADDRESS = 'resource_tdx_2_1tknxxxxxxxxxradxrdxxxxxxxxx009923554798xxxxxxxxxtfd2jc';
 
-// Gacha package and component addresses (these would need to be deployed)
-export const GACHA_PACKAGE_ADDRESS = 'package_tdx_2_1p4r8p8p8p8p8p8p8p8p8p8p8p8p8p8p8p8p8p8p8p8p8p8p8p8p8p';
-export const GACHA_COMPONENT_ADDRESS = 'component_tdx_2_1cp4r8p8p8p8p8p8p8p8p8p8p8p8p8p8p8p8p8p8p8p8p8p8p8p8p';
+// ===== YOUR DEPLOYED CONTRACT ADDRESSES (UPDATE THESE) =====
+// Badge contract package and component addresses from your local simulator
+export const GACHA_PACKAGE_ADDRESS = 'package_tdx_2_1p4588p2hrkfzzl2ynm5gvc590sr5tr8rc4uyk02p0r04xnqxlsqhqe';
+export const GACHA_COMPONENT_ADDRESS = 'component_tdx_2_1czx0krpexd9jhhtc5dthwqkh28ukvjnpj4yxm48px0qxkjdcexylav';
+
+// Badge resource address (the NFT resource created by your contract)
+export const BADGE_RESOURCE_ADDRESS = 'resource_sim1t4h3kupr5l95w6ufpuysl0afun0gfzzw7ltmk7y68ks5ekqh4cpx9w';
 
 class RadixService {
   private rdt: RadixDappToolkit | null = null;
@@ -34,6 +38,7 @@ class RadixService {
 
     try {
       logger.info('Initializing Radix DApp Toolkit with mobile support', null, 'RadixService');
+
       this.rdt = RadixDappToolkit({
         dAppDefinitionAddress: STOKENET_CONFIG.dAppDefinitionAddress,
         networkId: STOKENET_CONFIG.networkId,
@@ -46,7 +51,7 @@ class RadixService {
         this.rdt.buttonApi.setMode('dark');
       } catch {}
 
-      // Request at least one account by default so the √ Connect button knows what to ask for
+      // Request at least one account by default so the Connect button knows what to ask for
       await this.rdt.walletApi.setRequestData(
         DataRequestBuilder.accounts().atLeast(1)
       );
@@ -84,8 +89,8 @@ class RadixService {
       await this.rdt!.walletApi.setRequestData(
         DataRequestBuilder.accounts().atLeast(1)
       );
-      const result = await this.rdt!.walletApi.sendRequest();
 
+      const result = await this.rdt!.walletApi.sendRequest();
       logger.info('Wallet connection successful', null, 'RadixService');
       return result;
     } catch (error) {
@@ -123,11 +128,13 @@ class RadixService {
         }
 
         const data = await response.json();
+
         // --- Patch for correct Stokenet response parsing ---
         const fungibleResources = data.items[0]?.fungible_resources?.items || [];
         const xrdResource = fungibleResources.find(
           (resource: any) => resource.resource_address === XRD_RESOURCE_ADDRESS
         );
+
         let balance = 0;
         if (xrdResource && xrdResource.vaults?.items?.length > 0) {
           balance = xrdResource.vaults.items.reduce(
@@ -135,6 +142,7 @@ class RadixService {
             0
           );
         }
+
         logger.info('Parsed XRD balance: ' + balance);
 
         // Validate balance
@@ -144,7 +152,6 @@ class RadixService {
     ).catch(error => {
       logger.error('Error fetching balance', error, 'RadixService');
       console.log('Fetch balance for:', accountAddress, 'Looking for resource:', XRD_RESOURCE_ADDRESS);
-
       return 0;
     });
   }
@@ -168,15 +175,20 @@ class RadixService {
     // Generate a simple nonce for VDF (in real implementation, this would be more complex)
     const nonce = validateInput(nonceSchema, Math.floor(Math.random() * 1000000));
     
-    // Create the transaction manifest
+    // ===== UPDATED: Call your BadgeContract's get_badge method =====
     const manifest = `
-      CALL_METHOD
-      Address("${GACHA_COMPONENT_ADDRESS}")
-      "get_badge";
-    `;
+CALL_METHOD
+  Address("${GACHA_COMPONENT_ADDRESS}")
+  "get_badge";
+
+CALL_METHOD
+  Address("${accountAddress}")
+  "deposit_batch"
+  Expression("ENTIRE_WORKTOP");
+`;
 
     try {
-      logger.info('Submitting mint transaction', { tier, amount }, 'RadixService');
+      logger.info('Submitting badge claim transaction', { tier, amount }, 'RadixService');
 
       const result = await this.rdt!.walletApi.sendTransaction({
         transactionManifest: manifest,
@@ -184,12 +196,12 @@ class RadixService {
       });
 
       const txHash = (result as any)?.value?.transactionIntentHash;
+
       if (!txHash) {
         throw new TransactionError("Transaction could not be submitted—check contract address and manifest.");
       }
 
       logger.info('Transaction submitted', { txHash }, 'RadixService');
-
       return txHash;
     } catch (error) {
       logger.error('Transaction submission failed', error, 'RadixService');

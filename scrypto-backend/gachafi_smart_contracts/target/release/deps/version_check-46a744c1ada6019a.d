@@ -1,0 +1,10 @@
+C:\Users\mohit\OneDrive\Desktop\Gachafi\scrypto-backend\gachafi_smart_contracts\target\release\deps\libversion_check-46a744c1ada6019a.rmeta: C:\Users\mohit\.cargo\registry\src\index.crates.io-6f17d22bba15001f\version_check-0.9.5\src/lib.rs C:\Users\mohit\.cargo\registry\src\index.crates.io-6f17d22bba15001f\version_check-0.9.5\src\version.rs C:\Users\mohit\.cargo\registry\src\index.crates.io-6f17d22bba15001f\version_check-0.9.5\src\channel.rs C:\Users\mohit\.cargo\registry\src\index.crates.io-6f17d22bba15001f\version_check-0.9.5\src\date.rs
+
+C:\Users\mohit\OneDrive\Desktop\Gachafi\scrypto-backend\gachafi_smart_contracts\target\release\deps\libversion_check-46a744c1ada6019a.rlib: C:\Users\mohit\.cargo\registry\src\index.crates.io-6f17d22bba15001f\version_check-0.9.5\src/lib.rs C:\Users\mohit\.cargo\registry\src\index.crates.io-6f17d22bba15001f\version_check-0.9.5\src\version.rs C:\Users\mohit\.cargo\registry\src\index.crates.io-6f17d22bba15001f\version_check-0.9.5\src\channel.rs C:\Users\mohit\.cargo\registry\src\index.crates.io-6f17d22bba15001f\version_check-0.9.5\src\date.rs
+
+C:\Users\mohit\OneDrive\Desktop\Gachafi\scrypto-backend\gachafi_smart_contracts\target\release\deps\version_check-46a744c1ada6019a.d: C:\Users\mohit\.cargo\registry\src\index.crates.io-6f17d22bba15001f\version_check-0.9.5\src/lib.rs C:\Users\mohit\.cargo\registry\src\index.crates.io-6f17d22bba15001f\version_check-0.9.5\src\version.rs C:\Users\mohit\.cargo\registry\src\index.crates.io-6f17d22bba15001f\version_check-0.9.5\src\channel.rs C:\Users\mohit\.cargo\registry\src\index.crates.io-6f17d22bba15001f\version_check-0.9.5\src\date.rs
+
+C:\Users\mohit\.cargo\registry\src\index.crates.io-6f17d22bba15001f\version_check-0.9.5\src/lib.rs:
+C:\Users\mohit\.cargo\registry\src\index.crates.io-6f17d22bba15001f\version_check-0.9.5\src\version.rs:
+C:\Users\mohit\.cargo\registry\src\index.crates.io-6f17d22bba15001f\version_check-0.9.5\src\channel.rs:
+C:\Users\mohit\.cargo\registry\src\index.crates.io-6f17d22bba15001f\version_check-0.9.5\src\date.rs:

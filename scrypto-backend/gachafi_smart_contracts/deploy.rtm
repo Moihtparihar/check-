@@ -1,0 +1,16 @@
+
+PUBLISH_PACKAGE_ADVANCED
+    Enum<0u8>()
+    Map<String, Tuple>()
+    Blob("target/wasm32-unknown-unknown/release/gachafi_smart_contracts.wasm")
+    Blob("target/wasm32-unknown-unknown/release/gachafi_smart_contracts.rpd")
+    Map<String, Enum>()
+    Enum<1u8>(
+        Enum<0u8>()
+    )
+;
+CALL_FUNCTION
+    Address("package_tdx_2_1p4588p2hrkfzzl2ynm5gvc590sr5tr8rc4uyk02p0r04xnqxlsqhqe")
+    "BadgeContract"
+    "new"
+;

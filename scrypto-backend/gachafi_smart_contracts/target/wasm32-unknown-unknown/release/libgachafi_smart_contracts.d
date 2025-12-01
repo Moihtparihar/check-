@@ -1,0 +1,1 @@
+C:\Users\mohit\OneDrive\Desktop\Gachafi\scrypto-backend\gachafi_smart_contracts\target\wasm32-unknown-unknown\release\libgachafi_smart_contracts.rlib: C:\Users\mohit\OneDrive\Desktop\Gachafi\scrypto-backend\gachafi_smart_contracts\src\lib.rs
